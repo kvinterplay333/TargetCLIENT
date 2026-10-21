@@ -4,10 +4,10 @@ package com.target.client;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
+import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.gui.DrawContext;
 import net.minecraft.text.Text;
 import org.lwjgl.glfw.GLFW;
 
@@ -41,40 +41,40 @@ public class TargetClient implements ClientModInitializer {
 
         @Override
         public void render(
-            net.minecraft.client.gui.DrawContext context,
+            DrawContext context,
             int mouseX,
             int mouseY,
             float delta
         ) {
             renderBackground(context, mouseX, mouseY, delta);
 
-            int centerX = width / 2;
-            int centerY = height / 2;
+            int x = width / 2;
+            int y = height / 2;
 
             context.fill(
-                centerX - 120, centerY - 85,
-                centerX + 120, centerY + 85,
+                x - 120, y - 85,
+                x + 120, y + 85,
                 0xEE160D25
             );
 
             context.drawCenteredTextWithShadow(
                 textRenderer, "TARGETCLIENT",
-                centerX, centerY - 65, 0xFFB56CFF
+                x, y - 65, 0xFFB56CFF
             );
 
             context.drawCenteredTextWithShadow(
-                textRenderer, "TARGET — in development",
-                centerX, centerY - 20, 0xFFFFFFFF
+                textRenderer, "TARGET - in development",
+                x, y - 20, 0xFFFFFFFF
             );
 
             context.drawCenteredTextWithShadow(
-                textRenderer, "AIM — in development",
-                centerX, centerY + 10, 0xFFFFFFFF
+                textRenderer, "AIM - in development",
+                x, y + 10, 0xFFFFFFFF
             );
 
             context.drawCenteredTextWithShadow(
                 textRenderer, "Press ESC to close",
-                centerX, centerY + 60, 0xFFAAAAAA
+                x, y + 60, 0xFFAAAAAA
             );
 
             super.render(context, mouseX, mouseY, delta);
