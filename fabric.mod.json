@@ -1,0 +1,23 @@
+
+{
+  "schemaVersion": 1,
+  "id": "targetclient",
+  "version": "1.0.0",
+  "name": "TargetCLIENT",
+  "description": "Purple neon visual client for Minecraft 1.21.1.",
+  "authors": [
+    "kvinterplay333"
+  ],
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.target.client.TargetClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.16.5",
+    "minecraft": "~1.21.1",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}
